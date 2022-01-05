@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Codigo/GaleriaDeFotos/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.21875" />
+        <entry key="..\:/Codigo/GaleriaDeFotos/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.1765625" />
         <entry key="..\:/Codigo/GaleriaDeFotos/app/src/main/res/layout/activity_galeria_de_fotos.xml" value="0.2755208333333333" />
         <entry key="..\:/Codigo/GaleriaDeFotos/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Codigo/GaleriaDeFotos/app/src/main/res/layout/image_detail.xml" value="0.10572916666666667" />
+        <entry key="..\:/Codigo/GaleriaDeFotos/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21875" />
+        <entry key="..\:/Codigo/GaleriaDeFotos/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.21875" />
         <entry key="..\:/Codigo/GaleriaDeFotos/app/src/main/res/xml/provider_paths.xml" value="0.23541666666666666" />
       </map>
     </option>

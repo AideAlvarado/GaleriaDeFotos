@@ -32,7 +32,7 @@ class GalleryAdapter: Adapter<GalleryAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = imageList.get(position)
+        val item = imageList[position]
         holder.bind(item, context)
     }
 

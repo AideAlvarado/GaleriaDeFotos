@@ -15,6 +15,9 @@ class GaleriaDeFotos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGaleriaDeFotosBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.returnButton.setOnClickListener(){
+            onBackPressed()
+        }
         setUpRecyclerView()
     }
 

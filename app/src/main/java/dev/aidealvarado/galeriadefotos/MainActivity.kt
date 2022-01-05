@@ -12,6 +12,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -19,6 +20,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
+import androidx.core.view.isVisible
 import dev.aidealvarado.galeriadefotos.databinding.ActivityMainBinding
 import java.io.File
 import java.io.FileOutputStream
@@ -42,6 +44,9 @@ class MainActivity : AppCompatActivity() {
                 imageBitmap = BitmapFactory.decodeFile(pictureFullPath)
                 if (imageBitmap != null) {
                     saveMediaToStorage(imageBitmap!!)
+                    if (gallery.isVisible == false) {
+                        gallery.isVisible = true
+                    }
                     imageView.setImageBitmap(imageBitmap)
                 }
 
@@ -60,7 +65,9 @@ class MainActivity : AppCompatActivity() {
         gallery = binding.gallery
         takePhoto = binding.takePhoto
         imageView = binding.imageView
-
+        if (countImages()==0 ){
+            gallery.visibility = View.INVISIBLE
+        }
         gallery.setOnClickListener {
             openGallery()
         }
@@ -150,5 +157,16 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"Foto guardada en la galería",Toast.LENGTH_LONG).show()
         }
     }
-
+    private fun countImages(): Int {
+        val imageList: MutableList<Imagenes> = arrayListOf()
+        val path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+        val miPath = getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.toURI()
+        for (file in File(miPath).walk()) {
+            Log.d("Recycler", "$file  ${file.length()}")
+            if (file.length() > 0 && file.isFile == true) {
+                imageList.add(Imagenes(file.toString()))
+            }
+        }
+        return imageList.size
+    }
 }

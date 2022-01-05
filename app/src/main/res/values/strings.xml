@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">GaleriaDeFotos</string>
-    <string name="gallery">Galeria</string>
-    <string name="take">Foto</string>
-    <string name="selected_picture">Imagen seleccionada</string>
+    <string name="app_name">Photo gallery</string>
+    <string name="gallery">Gallery</string>
+    <string name="take">Take a picture</string>
+    <string name="selected_picture">Selected image</string>
+    <string name="back">Back</string>
 </resources>
