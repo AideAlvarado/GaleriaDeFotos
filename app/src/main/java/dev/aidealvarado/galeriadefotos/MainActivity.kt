@@ -33,15 +33,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var gallery: Button
     private lateinit var takePhoto: Button
     private lateinit var imageView: ImageView
-    private var heroBitmap: Bitmap? = null
+    private var imageBitmap: Bitmap? = null
     private var pictureFullPath = ""   // Path donde guarderomos la foto
 
     private val getContent =
         registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
             if (success && pictureFullPath.isNotEmpty()) {
-                heroBitmap = BitmapFactory.decodeFile(pictureFullPath)
-                if (heroBitmap != null) {
-                    imageView.setImageBitmap(heroBitmap)
+                imageBitmap = BitmapFactory.decodeFile(pictureFullPath)
+                if (imageBitmap != null) {
+                    saveMediaToStorage(imageBitmap!!)
+                    imageView.setImageBitmap(imageBitmap)
                 }
 
             }
@@ -61,17 +62,21 @@ class MainActivity : AppCompatActivity() {
         imageView = binding.imageView
 
         gallery.setOnClickListener {
-            pickPhotoFromGallery()
+            openGallery()
         }
 
         //lanzamos la foto
         takePhoto.setOnClickListener {
             openCamera()
-            saveMediaToStorage(heroBitmap!!)
+
         }
 
     }
 
+    private fun openGallery() {
+        val intent = Intent( this, GaleriaDeFotos::class.java )
+        startActivity(intent)
+    }
 
 
     private fun pickPhotoFromGallery() {
@@ -99,9 +104,9 @@ class MainActivity : AppCompatActivity() {
         if (resultCode== Activity.RESULT_OK && requestCode == AppConstants.PICK_PHOTO_REQUEST){
             fileUri = data?.data
 
-            heroBitmap = BitmapFactory.decodeFile(pictureFullPath)
-            if (heroBitmap != null) {
-                imageView.setImageBitmap(heroBitmap)
+            imageBitmap = BitmapFactory.decodeFile(pictureFullPath)
+            if (imageBitmap != null) {
+                imageView.setImageBitmap(imageBitmap)
             }
         }
         else {
