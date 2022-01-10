@@ -3,5 +3,5 @@
     <string name="gallery">Gallery</string>
     <string name="take">Take a picture</string>
     <string name="selected_picture">Selected image</string>
-    <string name="back">Back</string>
+    <string name="back" translatable="false">Back</string>
 </resources>
