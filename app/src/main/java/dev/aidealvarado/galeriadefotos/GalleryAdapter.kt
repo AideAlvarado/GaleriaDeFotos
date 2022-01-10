@@ -1,6 +1,7 @@
 package dev.aidealvarado.galeriadefotos
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.*
 import dev.aidealvarado.galeriadefotos.databinding.ImageDetailBinding
 
+private val TAG = GalleryAdapter::class.java.simpleName
 class GalleryAdapter: Adapter<GalleryAdapter.ViewHolder>() {
     var imageList: MutableList<Imagenes> = ArrayList()
     lateinit var  context: Context
@@ -22,6 +24,7 @@ class GalleryAdapter: Adapter<GalleryAdapter.ViewHolder>() {
         private val binding = ImageDetailBinding.bind(view)
 
         fun bind(image:Imagenes, context: Context){
+            Log.d(TAG,"Cargando imagen $image")
             binding.imageSmall.setImageURI(image.fileName.toUri())
         }
     }
